@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>悬浮窗</title>
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    .box{
+        width:300px ;
+        height: 200px;
+        background-color: antiquewhite;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script src="float.js"></script>
+<script>
+    let box =document.getElementsByClassName('box')[0];
+    let flag=true;
+    let boxF =new Float(box);
+    boxF.start();
+    document.onclick=function(){
+        if(flag){
+            boxF.stop();
+            flag=false;
+        }else if(flag==false){
+            boxF.start();
+            flag=true;
+        }
+    };
+    window.onresize=function () {
+        boxF.resize();
+    }
+
+
+</script>
